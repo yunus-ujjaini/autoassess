@@ -1,0 +1,28 @@
+method GenerateQuestion
+    section = Verify Section being attempted and get the details
+
+    if section is "objective" section
+        evaluating_variable = get stored value of EvaluatingVariable from database
+    else if section is "coding" section
+        evaluating_variable = get stored value of EvaluatingVariableCoding from database
+    
+    if evaluating_variable > hardQuestionDifficultyOffset
+        difficulty = hard
+    else if evaluating_variable > mediumQuestionDifficultyOffset
+        difficulty = medium
+    else
+        difficulty = easy
+    
+    skills = get required skills for the job
+
+    Asked_Questions = get Asked questions from database using assessmentId
+
+    New_Question = get Question from the list of questions linked to the Job matching difficulty level and from skills attached to this job
+
+    if New_Question is not present in Asked_Questions
+        return New_Question
+    else
+        do 
+            New_Question = get Question from the database matching difficulty level and from skills attached to this job
+        while New_Question is present in Asked_Questions
+        return New_Question

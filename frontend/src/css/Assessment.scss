@@ -1,0 +1,237 @@
+@import './reset';
+@import './fonts';
+@import './style';
+
+body{
+    background: linear-gradient(to top,rgba(255,255,255,0.9),rgba(255,255,255,0.9)), url('../../public/bg2.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+    color:rgb(58, 58, 58);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+.Assessment{
+    
+    
+    .Main{
+        min-height: 100vh;
+        background-color:var(--Background2);
+        padding:  10px 20px;
+        position: relative;
+        
+        &-Job{
+            margin: 10px 0px;
+            width: 100%;
+            padding: 10px;
+            position: relative;
+            &-title{
+                font-weight: 700;
+                font-size: 1.2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                button{
+                    background:linear-gradient(to left,var(--Background) 50%,var(--Foreground) 50%);
+                    background-size: 300% 100%;
+                    background-position: right;
+                    color: var(--Foreground);
+                    padding: 5px 30px;
+                    border: 1px solid var(--Background);
+                    font-size: 1.2rem;
+                    box-shadow: 0px 0px 0px var(--Background);
+                    transition: background-position 1s,color 1s;
+                    font-weight: 400;
+                    &:hover,&:focus{
+                        cursor: pointer;
+                        background-position: left;
+                        color: var(--Background);
+                        outline: 2px dotted var(--Background);
+                        outline-offset: 2px;
+                        box-shadow: 0px 0px 5px var(--Background);
+                    }
+                }
+                &-Assessment{
+                    background:linear-gradient(to left,var(--Background) 50%,var(--Foreground) 50%);
+                    background-size: 300% 100%;
+                    background-position: right;
+                    color: var(--Foreground);
+                    padding: 10px 40px;
+                    border: 1px solid var(--Background);
+                    font-size: 1.2rem;
+                    box-shadow: 0px 0px 5px var(--Background);
+                    transition: background-position 1s,color 1s;
+                    font-weight: 400;
+                    &:hover,&:focus{
+                        cursor: pointer;
+                        background-position: left;
+                        color: var(--Background);
+                        outline: 2px dotted var(--Background);
+                        outline-offset: 2px;
+                    }
+                }
+            }
+            &-title-sub{
+                margin-top: 10px;
+                display: flex;
+                justify-content: space-between;
+                &-posting{
+                    text-align: right;
+                }
+            }
+            &-actions{
+                display: flex;
+                justify-content: right;
+                position: fixed;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                padding: 10px 20px 15px 20px;
+                // background-color: var(--Background3);
+                button{
+                    background:linear-gradient(to left,var(--Background) 50%,var(--Foreground) 50%);
+                    background-size: 300% 100%;
+                    background-position: left;
+                    color: var(--Background);
+                    padding: 5px 30px;
+                    border: 1px solid var(--Background);
+                    font-size: 1.2rem;
+                    box-shadow: 0px 0px 0px var(--Background);
+                    transition: background-position 1s,color 1s;
+                    font-weight: 400;
+                    &:hover,&:focus{
+                        cursor: pointer;
+                        background-position: right;
+                        color: var(--Foreground);
+                        outline: 2px dotted var(--Background);
+                        outline-offset: 2px;
+                        box-shadow: 0px 0px 5px var(--Background);
+                    }
+                }
+            }
+            &-card{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--Foreground);
+                box-shadow: 0px 0px 5px var(--Background);
+                padding: 30px;
+                padding-bottom: 100px;
+                min-height: 70vh;
+                position: relative;
+
+                &-title{
+                    position: absolute;
+                    width: 100%;
+                    background-color: var(--Background);
+                    color: var(--Foreground);
+                    bottom: 10px;
+                    left: 0px;
+                    padding: 5px;
+                    font-size: 2rem;
+                    text-align: center;
+                    letter-spacing: 2px;
+                }
+                &-FITB{
+                    width: 80%;
+                    height: 100%;
+                    font-size: 2rem;
+                    text-align: center;
+                    &-blank{
+                        border: none;
+                        border-bottom: 1px solid var(--Background);
+                        &:hover,&:focus{
+                            outline: none;
+                        }
+                    }
+                }
+                &-MCQ{
+                    width: 100%;
+                    height: 100%;
+                    font-size: 2rem;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    &-Question{
+                        width: 50%;
+                        padding: 0px 5%;
+                        // display: flex;
+                        height: 100%;
+                        // justify-content: center;
+                        // align-items: center;
+                        .Questionimg{
+                            height: auto;
+                            width: 100%;
+                            margin: 5% auto;
+                        }
+                    }
+                    &-Options{
+                        width: 50%;
+                        display: flex;
+                        gap: 10px;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        border-left: 1px dotted var(--Background);
+                        padding: 10px;
+                        
+                        &-Option{
+                            min-width: 80%;
+                            max-width: 80%;
+                            border: 1px solid var(--Background);
+                            padding: 5px 100px;
+                            &:hover{
+                                cursor: pointer;
+                                background-color: var(--Background);
+                                color: var(--Foreground);
+                                outline: 2px dotted var(--Background);
+                                outline-offset: 2px;
+                            }
+                        }
+                        &-Option-active{
+                            transform: scale(1.05);
+                            background-color: var(--Background);
+                            color: var(--Foreground);
+                        }
+                    }
+                }
+                &-Coding{
+                    width: 100%;
+                    height: 100%;
+                    font-size: 2rem;
+                    text-align: center;
+                    display: flex;
+                    justify-content: space-between;
+                    &-Question{
+                        width: 50%;
+                        padding: 0px 5%;
+                        .Questionimg{
+                            height: auto;
+                            width: 100%;
+                            margin: 5% auto;
+                        }
+                    }
+                    &-CodeArea{
+                        width: 50%;
+                        // border-left: 1px dotted var(--Background);
+                        // padding: 10px;
+                        text-align: left;
+                        // background: var(--Background);
+                        // color: var(--Foreground);
+                        // font-size: 1rem;
+                        font-size: 0.8rem;
+                        height: 40vh;
+                        &:hover,&:focus{
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.Questionimg{
+    height: auto;
+    width: 40%;
+    margin: 5% auto;
+}

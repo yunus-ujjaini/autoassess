@@ -1,0 +1,327 @@
+@import './reset';
+@import './fonts';
+@import './style';
+
+body{
+    background: linear-gradient(to top,rgba(255,255,255,0.9),rgba(255,255,255,0.9)), url('../../public/bg2.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+    color:rgb(58, 58, 58);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+}
+.Home{
+    .Header{
+        background-color:var(--Background);
+        color: var(--Foreground);
+        padding:  30px 40px;
+        &-title-main{
+            font-size: 3rem;
+        }
+        &-input{
+            margin: 40px 0px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            &-text{
+                width: 40%;
+                input{
+                    width: 100%;
+                    height: 70px;
+                    padding: 20px 20px 20px 60px;
+                    &:hover,&:focus{
+                        outline: 2px dotted var(--Foreground);
+                        outline-offset: 1px;
+                    }
+                }
+                &-icon{
+                    position: absolute;
+                    height: 60%;
+                    top: 50%;
+                    left: 1%;
+                    transform: translateY(-50%);
+                }
+            }
+            &-select{
+                width: 40%;
+                margin: 0px 20px;
+                position: relative;
+                &:hover,&:focus{
+                    outline: 2px dotted var(--Foreground);
+                    outline-offset: 1px;
+                }
+                Select{
+                    width: 100%;
+                    padding: 20px 20px 20px 60px;
+                    &:hover,&:focus{
+                        outline: 2px dotted var(--Foreground);
+                        outline-offset: 1px;
+                    }
+                }
+                &-icon{
+                    position: absolute;
+                    height: 60%;
+                    top: 50%;
+                    left: 1%;
+                    transform: translateY(-50%);
+                    z-index: 999;
+                }
+            }
+            
+        }
+        &-buttons{
+            width: calc(80% + 20px);
+            display: flex;
+            justify-content: flex-end;
+            &-btn{
+                padding: 10px 30px;
+                margin: 0px 5px;
+                transition: background-position 1s,color 1s;
+                font-weight: 400;
+                &:hover,&:focus{
+                    cursor: pointer;
+                    outline: 2px dotted var(--Foreground);
+                    outline-offset: 2px;
+                    background-position: left;
+                }
+            }
+            &-clear{
+                background:linear-gradient(to left,transparent 50%,var(--Foreground) 50%);
+                background-size: 300% 100%;
+                background-position: right;
+                color: var(--Foreground);
+                border: 2px solid var(--Foreground);
+                box-shadow: 0px 0px 5px var(--Foreground);
+                &:hover,&:focus{
+                    color: var(--Background);
+                }
+            }
+            &-search{
+                background:linear-gradient(to left,var(--Foreground) 50%,var(--Background) 50%);
+                background-size: 300% 100%;
+                background-position: 247% 100%;
+                color: var(--Background);
+                border: 2px solid var(--Foreground);
+                box-shadow: 0px 0px 5px var(--Foreground);
+                &:hover,&:focus{
+                    color: var(--Foreground);
+                    background-position: 150% 100%;
+                }
+            }
+        }
+    }
+    
+    .Main{
+        min-height: 100vh;
+        background-color:var(--Background2);
+        padding:  30px 40px;
+        position: relative;
+        &-SkillsRequired{
+            position: fixed;
+            width: 17%;
+            right: 2%;
+            bottom: 30px;
+            border: 2px solid var(--Background);
+            padding: 20px;
+            background: var(--Foreground);
+            h1{
+                font-size: 1rem;
+                font-weight: 900;
+            }
+            .colors{
+                display: flex;
+                align-items: center;
+                margin: 20px 0px;
+                gap: 10px;
+                .skillLevel{
+                    font-weight: 500;
+                }
+                .color{
+                    height: 20px;
+                    width: 50px;
+                    border-radius: 50px;
+                    display: grid;
+                    place-items: center;
+                    font-weight: 600;
+                    font-size: 0.7rem;
+                    color: var(--Foreground)
+                }
+                .color1{
+                    background-color: var(--VeryLight);
+                    transition: none;
+                    &:hover{
+                        outline: 2px dotted var(--VeryLight);
+                        outline-offset: 1px;
+                    }
+                }
+                .color2{
+                    background-color: var(--Light);
+                    transition: none;
+                    &:hover{
+                        outline: 2px dotted var(--Light);
+                        outline-offset: 1px;
+                    }
+                }
+                .color3{
+                    background-color: var(--Medium);
+                    transition: none;
+                    &:hover{
+                        outline: 2px dotted var(--Medium);
+                        outline-offset: 1px;
+                    }
+                }
+                .color4{
+                    background-color: var(--Dark);
+                    transition: none;
+                    &:hover{
+                        outline: 2px dotted var(--Dark);
+                        outline-offset: 1px;
+                    }
+                }
+                .color5{
+                    background-color: var(--VeryDark);
+                    transition: none;
+                    &:hover{
+                        outline: 2px dotted var(--VeryDark);
+                        outline-offset: 1px;
+                    }
+                }
+            }
+            
+        }
+        &-header{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &-count{
+                font-weight: 700;
+            }
+            &-sort{
+                position: relative;
+                width: 210px;
+                border: 1px solid var(--Background);
+                box-shadow: 0px 0px 2px var(--Background);
+                &:hover,&:focus{
+                    cursor: pointer;
+                    outline: 2px dotted var(--Background);
+                    outline-offset: 2px;
+                    
+                }
+                button{
+                    background: transparent;
+                    border: none;
+                    padding: 5px 20px 5px 40px;
+                    font-weight: 400;
+                    &:hover,&:focus{
+                        outline: 0px;
+                    }
+                }
+                img{
+                    position: absolute;
+                    height: 60%;
+                    top: 50%;
+                    transform: translateY(-55%);
+                    left: 10px;
+                }
+            }
+        }
+        &-Jobs{
+            &-Job{
+                margin: 20px 0px;
+                width: 80%;
+                border: 2px solid var(--Background);
+                padding: 20px;
+                font-size: 0.6rem;
+                position: relative;
+                &:hover{
+                    cursor: pointer;
+                    outline: 2px dotted var(--Background);
+                    outline-offset: 2px;
+                    box-shadow: 0px 0px 2px var(--Background);
+                }
+                &-Header{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                &-Location,&-JobId{
+                    font-size: 0.4rem;
+                    display: flex;
+                    justify-content: space-between;
+                    &-Display{
+                        display: flex;
+                        gap: 10px;
+                        &-Loc{
+                            position: relative;
+    
+                            .dot{
+                                position: relative;
+                            }
+                            // &::before{
+                            //     content:'•';
+                            //     position:absolute;
+                            //     right:105%;
+                            //     top: 0%;
+                                
+                            //     font-size: 2rem;
+                            // }
+                        }
+                    }
+                }
+                &-Skills{
+                    display: flex;
+                    margin: 20px 0px 0px 0px;
+                    &-Skill{
+                        font-size: 0.8rem;
+                        margin: 0px 2px;
+                        // background-color: var(--Background);
+                        color: var(--Foreground);
+                        padding: 5px 20px;
+                        border-radius: 50px;
+                        font-weight: 400;
+                        
+                    }
+                    &-Skill-1{
+                        background-color: var(--VeryLight);
+                    }
+                    &-Skill-2{
+                        background-color: var(--Light);
+                    }
+                    &-Skill-3{
+                        background-color: var(--Medium);
+                    }
+                    &-Skill-4{
+                        background-color: var(--Dark);
+                    }
+                    &-Skill-5{
+                        background-color: var(--VeryDark);
+                    }
+                }
+                &-Apply{
+                    position: absolute;
+                    background:linear-gradient(to left,var(--Background) 50%,var(--Foreground) 50%);
+                    background-size: 300% 100%;
+                    background-position: right;
+                    color: var(--Foreground);
+                    padding: 5px 30px;
+                    border: 1px solid var(--Background);
+                    bottom: 20px;
+                    right: 20px;
+                    font-size: 1rem;
+                    box-shadow: 0px 0px 2px var(--Background);
+                    transition: background-position 1s,color 1s;
+                    font-weight: 400;
+                    &:hover,&:focus{
+                        cursor: pointer;
+                        background-position: left;
+                        color: var(--Background);
+                        outline: 2px dotted var(--Background);
+                        outline-offset: 2px;
+                    }
+                }
+            }
+    
+        }
+    }
+}

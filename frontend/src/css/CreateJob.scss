@@ -1,0 +1,581 @@
+@import 'reset';
+@import 'fonts';
+@import 'style';
+*,*::after,*::before{
+    transition: all 0.2s;
+}
+:root {
+
+    --DashboardForeground:  #1e255b;
+    --DashboardForegroundSecondary:  white;
+    --Dashboardicons: invert(12%) sepia(73%) saturate(1469%) hue-rotate(213deg) brightness(97%) contrast(95%);
+    --Dashboardiconshover: invert(100%) sepia(100%) saturate(14%) hue-rotate(212deg) brightness(104%) contrast(104%);
+    --DashboardBackground:rgba(255,255,255,0.5);
+    --backdrop:blur(2px) grayscale(90%);;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.themeChanger{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex; 
+    .theme{
+        margin: 2px;
+        height: 20px;
+        width: 20px;
+        border-radius: 100px;
+        border: 3px solid black;
+        &:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+    .lightTheme{
+        background-color: white;
+    }
+    .classicTheme{
+        background-color: #ffb901;
+    }
+    .darkTheme{
+        background-color: #3071ae;
+    }
+}
+.modal{
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--DashboardForeground);
+    z-index: 4;
+    padding: 20px;
+    color: var(--DashboardForegroundSecondary);
+    border-radius: 10px;
+    .modal-title{
+        width: 20vw;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        position: relative;
+        font-weight: 600;
+        .closeModal{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0%;
+            background-color: transparent;
+            color: var(--DashboardForegroundSecondary);
+            border: 0px solid var(--DashboardForegroundSecondary);
+            height: 35px;
+            width: 35px;
+            padding: 0px;
+            font-weight: 600;
+            border-radius: 100px;
+            &:hover{
+                background-color: var(--DashboardForegroundSecondary);
+                color: var(--DashboardForeground);
+                cursor: pointer;
+            }
+        }
+        
+    }
+    .modal-body{
+        padding: 20px 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .validation{
+            width: 100%;
+            position: relative;
+            input{
+                width: 100%;
+                padding: 5px;
+                border: 2px solid var(--DashboardForegroundSecondary);
+                background: transparent;
+                color: var(--DashboardForegroundSecondary);
+                &:hover,&:focus{
+                    outline: 1px dotted var(--DashboardForegroundSecondary);
+                    outline-offset: 2px;
+                }
+                // width: 100%;
+                // margin: 10px 0px;
+                // border: 2px solid #e3e3e3;
+                // border-radius: 2px;
+                // padding: 0.8rem 0.5rem;
+                // &:hover{
+                //     outline: 2px solid rgba(0,0,0,0.3);
+                //     outline-offset: -2px;
+                // }
+                // &:focus{
+                //     outline: 2px solid black;
+                //     outline-offset: -2px;
+                // }
+                
+            }
+            input[validation]{
+                position: relative;
+                &+span::after{
+                    content: attr(validation);
+                    position: absolute;
+                    bottom: -40%;
+                    right: 5px;
+                    color: var(--DashboardForegroundSecondary);
+                    font-size: 0.7rem;
+                    
+                }
+                
+            }
+        }
+        
+        .modal-button{
+            width: 100%;
+            background-color: var(--DashboardForegroundSecondary);
+            color: var(--DashboardForeground);
+            border: 1px solid var(--DashboardForegroundSecondary);
+            &:hover,&:focus{
+                outline: 1px dotted var(--DashboardForegroundSecondary);
+                outline-offset: 2px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.openModal{
+    top: 20%;
+}
+.DashboardContainer{
+    transition: all 0.5s;
+    min-height: 100vh;
+    width: 100vw;
+    padding: 50px;
+    background: url('../../public/bg3.jpg');
+    background-size: 300% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    // position: relative;
+    .infoMessage{
+        position: fixed;
+        background-color: var(--DashboardForeground);
+        color: var(--DashboardForegroundSecondary);
+        font-weight: 600;
+        border-radius: 100px;
+        padding: 20px 10%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    
+    }
+}
+
+.DashboardContainerBlur{
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        left: 0%;
+        right: 0%;
+        background-color: rgba(0,0,0,0.3);
+    }
+}
+.Dashboard{
+    // min-height: 100vh;
+    background-color: var(--DashboardBackground);
+    backdrop-filter: var(--backdrop);
+    padding: 20px 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    .dashboard-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .dashboard-title{
+        
+            text-align: left;
+            color: var(--DashboardForeground);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            span{
+                font-size: 1.5rem;
+            }
+        }
+        #logout{
+            transition: all 0.5s;
+            background:linear-gradient(to bottom,var(--DashboardForegroundSecondary) 50%,var(--DashboardForeground) 50%);
+            background-size: 100% 200%;
+            background-position: top;
+            border: 2px solid var(--DashboardForeground);
+            color: var(--DashboardForeground);
+            font-weight: 600;
+            padding: 5px 20px;
+            border-radius: 100px;
+            &:hover{
+                cursor: pointer;
+                color: var(--DashboardForegroundSecondary) ;
+                background-position: bottom;
+            }
+        }
+        .dashboard-header-buttons{
+            display: flex;
+            gap: 5px;
+            button{
+                transition: all 0.5s;
+                background:linear-gradient(to bottom,var(--DashboardForegroundSecondary) 50%,var(--DashboardForeground) 50%);
+                background-size: 100% 200%;
+                background-position: top;
+                border: 2px solid var(--DashboardForeground);
+                color: var(--DashboardForeground);
+                font-weight: 600;
+                padding: 5px 20px;
+                border-radius: 100px;
+                &:hover{
+                    cursor: pointer;
+                    color: var(--DashboardForegroundSecondary) ;
+                    background-position: bottom;
+                }
+            }
+        }
+    }
+}
+.CreateJobItems{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    // padding: 10px;
+    .CreateJobItem{
+        background-color: var(--DashboardBackground);
+        backdrop-filter: var(--backdrop);;
+        padding: 30px 30px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px black;
+        width: 90%;
+        font-weight: 600;
+        margin: 20px;
+        .CreateJobItem-header{
+            font-size: 1.2rem;
+            color: var(--DashboardForeground);
+            display: flex;
+            justify-content: space-between;
+            .CreateJobItem-header-Actions{
+                display: flex;
+                gap: 10px;
+                &-buttons{
+                    transition: all 0.5s;
+                    background:linear-gradient(to bottom,var(--DashboardForegroundSecondary) 50%,var(--DashboardForeground) 50%);
+                    background-size: 100% 200%;
+                    background-position: top;
+                    border: 2px solid var(--DashboardForeground);
+                    color: var(--DashboardForeground);
+                    font-weight: 600;
+                    padding: 5px 20px;
+                    border-radius: 100px;
+                    text-decoration: none;
+                    font-size: 1rem;
+                    &:hover{
+                        cursor: pointer;
+                        color: var(--DashboardForegroundSecondary) ;
+                        background-position: bottom;
+                    }
+                }
+            }
+            .actionButton{
+                background-color: transparent;
+                color: var(--DashboardForeground);
+                border: 2px solid var(--DashboardForeground);
+                border-radius: 100px;
+                height: 35px;
+                width: 35px;
+                padding: 0px;
+                font-weight: 600;
+                &:hover{
+                    background-color: var(--DashboardForeground);
+                    color: var(--DashboardForegroundSecondary);
+                    cursor: pointer;
+                }
+            }
+            
+        }
+        .CreateJobItem-contents{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            button{
+                width: 100%;
+                margin-top: 10px;
+                padding: 10px;
+                background-color: var(--DashboardForegroundSecondary);
+                color: var(--DashboardForeground);
+                border: 2px solid var(--DashboardForeground);
+                &:hover,&:focus{
+                    background-color: var(--DashboardForeground);
+                    color: var(--DashboardForegroundSecondary);
+                    outline: 2px dotted var(--DashboardForeground);
+                    outline-offset: 2px;
+                    cursor: pointer;
+                }
+            }
+            .validation{
+                width: 100%;
+                position: relative;
+                input{
+                    width: 100%;
+                    margin: 10px 0px;
+                    border: 2px solid var(--DashboardForeground);
+                    border-radius: 2px;
+                    padding: 0.8rem 0.5rem;
+                    background-color: var(--DashboardForegroundSecondary);
+                    color: var(--DashboardForeground);
+                    &:hover{
+                        outline: 2px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                    }
+                    &:focus{
+                        outline: 2px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                    }
+                    &::placeholder{
+                        color: var(--DashboardForeground);
+                    }
+                }
+                
+                input[validation]{
+                    border: 2px solid var(--DashboardForeground);
+                    position: relative;
+                    &:hover{
+                        outline: 2px dotted var(--DashboardForeground);;
+                        outline-offset: 2px;
+                    }
+                    &:focus{
+                        outline: 2px dotted var(--DashboardForeground);;
+                        outline-offset: 2px;
+                    }
+                    &+span::after{
+                        content: attr(validation);
+                        position: absolute;
+                        bottom: -10%;
+                        right: 5px;
+                        color: var(--DashboardForeground);;
+                        font-size: 0.7rem;
+                        
+                    }
+                    
+                }
+                textarea{
+                    width: 100%;
+                    min-width: 100%;
+                    max-width: 100%;
+                    margin: 10px 0px;
+                    border: 2px solid var(--DashboardForeground);
+                    border-radius: 2px;
+                    padding: 0.8rem 0.5rem;
+                    background-color: var(--DashboardForegroundSecondary);
+                    color: var(--DashboardForeground);
+                    &:hover{
+                        outline: 2px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                    }
+                    &:focus{
+                        outline: 2px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                    }
+                    &::placeholder{
+                        color: var(--DashboardForeground);
+                    }
+                }
+                textarea[validation]{
+                    border: 2px solid var(--DashboardForeground);
+                    position: relative;
+                    &:hover{
+                        outline: 2px dotted var(--DashboardForeground);;
+                        outline-offset: 2px;
+                    }
+                    &:focus{
+                        outline: 2px dotted var(--DashboardForeground);;
+                        outline-offset: 2px;
+                    }
+                    &+span::after{
+                        content: attr(validation);
+                        position: absolute;
+                        bottom: -2px;
+                        right: 5px;
+                        color: var(--DashboardForeground);;
+                        font-size: 0.7rem;
+                        
+                    }
+                    
+                }
+                Select,.select{
+                    width: 100%;
+                    margin: 10px 0px;
+                    border: 2px solid var(--DashboardForeground);
+                    border-radius: 2px;
+                    padding: 0.8rem 0.5rem;
+                    background-color: var(--DashboardForegroundSecondary);
+                    // color: var(--DashboardForeground);
+                    &:hover{
+                        outline: 2px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                    }
+                    &:focus{
+                        outline: 2px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                    }
+                }
+                Select[validation],.select[validation]{
+                    border: 2px solid var(--DashboardForeground);
+                    position: relative;
+                    &:hover{
+                        outline: 2px dotted var(--DashboardForeground);;
+                        outline-offset: 2px;
+                    }
+                    &:focus{
+                        outline: 2px dotted var(--DashboardForeground);;
+                        outline-offset: 2px;
+                    }
+                    &+span::after{
+                        content: attr(validation);
+                        position: absolute;
+                        bottom: -8px;
+                        right: 5px;
+                        color: var(--DashboardForeground);;
+                        font-size: 0.7rem;
+                        
+                    }
+                    
+                }
+            }
+            .content{
+                transition: all 0.5s;
+                margin: 5px;
+                padding: 10px 30px;
+                border: 2px solid var(--DashboardForeground);
+                color: var(--DashboardForeground);
+                background:linear-gradient(to bottom,var(--DashboardForegroundSecondary) 50%,var(--DashboardForeground) 50%);
+                background-size: 100% 200%;
+                background-position: top;
+                width: 100%;
+                border-radius: 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: 600;
+                font-size: 1rem;
+                white-space: nowrap;
+                &:hover{
+                    background-position: bottom;
+                    color: var(--DashboardForegroundSecondary);
+                    cursor: pointer;
+                    .content-icon{
+                        filter: var(--Dashboardiconshover);
+                    }
+                }
+                .content-icon{
+                    width: 30%;
+                    margin-right:10%; 
+                    filter: var(--Dashboardicons);
+        
+                }
+            }
+            .contentTextContainer{
+                width: 100%;
+                position: relative;
+                .contentText{
+                    margin: 5px 0px;
+                    padding: 10px 30px;
+                    border: 2px solid var(--DashboardForeground);
+                    color: var(--DashboardForeground);
+                    background:linear-gradient(to bottom,var(--DashboardForegroundSecondary) 50%,var(--DashboardForeground) 50%);
+                    background-size: 100% 200%;
+                    background-position: top;
+                    width: 100%;
+                    border-radius: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    white-space: nowrap;
+                    &::placeholder{
+                        color: var(--DashboardForeground);
+                    }
+                    &:hover,&:focus{
+                        outline: 1px dotted var(--DashboardForeground);
+                        outline-offset: 2px;
+                        color: var(--DashboardForeground);
+                        .content-icon{
+                            filter: var(--Dashboardicons);
+                        }
+                    }
+                    
+                }
+                .content-icon{
+                    width: 30px;
+                    margin-right:10%; 
+                    filter: var(--Dashboardicons);
+                    position: absolute;
+                    right: -10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .contentDataContainer{
+                max-height: 50vh;
+                overflow: scroll;
+                margin: 5px 0px;
+                padding: 10px 30px;
+                border: 2px solid var(--DashboardForeground);
+                color: var(--DashboardForeground);
+                background:linear-gradient(to bottom,var(--DashboardForegroundSecondary) 50%,var(--DashboardForeground) 50%);
+                background-size: 100% 200%;
+                background-position: top;
+                width: 100%;
+                border-radius: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: flex-start;
+                font-weight: 600;
+                font-size: 1rem;
+                white-space: nowrap;
+                .contentData{
+                    
+                    margin: 2px 0px;
+                    padding: 3px 5px;
+                    position: relative;
+                    z-index: 0;
+                    &::before{
+                        transition: all 0.2s;
+                        content: '';
+                        position: absolute;
+                        top: 0%;
+                        bottom: 0%;
+                        left: 0%;
+                        right: 100%;
+                        background-color: var(--DashboardForeground);
+                        z-index: -1;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                        color: var(--DashboardForegroundSecondary);
+                        &::before{
+                            right: 0%;
+                        }
+                        
+                    }
+                }
+            }
+            
+        }
+    }
+}

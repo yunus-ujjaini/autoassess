@@ -1,0 +1,40 @@
+@import 'reset';
+@import 'fonts';
+@import 'style';
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    // background-color: rgba(209,190,80,0.7);
+    background-color: var(--Background);
+    color: var(--Foreground);
+    .companyName{
+        .companyNameText{
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            img{
+                width: 10vw;
+            }
+        }
+    }
+    .navlinks{
+        .navlink{
+            margin: 0px 10px;
+            text-decoration: none;
+            color: var(--Foreground);
+            font-weight: 400;
+            padding: 5px 10px;
+            transition: none;
+            background: transparent;
+            border: 0.4px solid var(--Foreground);
+            box-shadow: 0px 0px 3px var(--Foreground);
+            &:hover{
+                outline: 2px dotted var(--Foreground);
+                outline-offset: 3px;
+                cursor: pointer;
+            }
+        }
+    }
+}

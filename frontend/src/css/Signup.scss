@@ -1,0 +1,429 @@
+@import 'reset';
+@import 'fonts';
+@import 'style';
+
+body{
+    background-color: rgb(246,250,255);
+    color:rgb(58, 58, 58);
+    font-family: 'Montserrat', sans-serif;
+}
+.Signup{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    color:#3a3a3a;
+}
+.SignupBlock{
+    width: 90%;
+    min-height: 80vh;
+    margin: auto auto;
+    display: flex;
+    justify-content: space-between;
+    border-top-right-radius: 50px;
+    overflow: hidden;
+    background-color: rgb(255,255,255);
+    box-shadow: 0px 0px 30px 1px #818181;
+    
+    .SignupBlock1{
+        width: 50%;
+        padding: 100px 5px;
+        display: grid;
+        place-items:center;
+        
+        .Signupform{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin: auto;
+            .Signuptitle{
+                font-size: 1.4rem;
+                font-weight: 400;
+                text-align: left;
+                line-height: 100%;
+                position: relative;
+                .logo{
+                    position: absolute;
+                    width: 10rem;
+                    bottom: 150%;
+                    left: 0%;
+                    
+                }
+                .Signuptitlesub{
+                    font-size: 1rem;
+                    font-weight: 100;
+                    #loginLink{
+                        text-decoration: none;
+                        position: relative;
+                        transition: all 1s;
+                        &::after{
+                            content: '';
+                            height: 2px;
+                            position: absolute;
+                            left: 0%;
+                            right: 100%;
+                            background: rgb(37,177,168);
+                            top: 100%;
+                            transition: all 1s;
+                        }
+                        &:hover,&:focus{
+                            color: rgb(37,177,168);
+                            outline: 0px;
+                            &::after{
+                                content: '';
+                                height: 2px;
+                                position: absolute;
+                                left: 0%;
+                                right: 0%;
+                                background: rgb(37,177,168);
+                                top: 100%;
+                                transition: all 1s;
+                            }
+                        }
+                    }
+                }
+            }
+            .validation{
+                width: 100%;
+                position: relative;
+                input{
+                    width: 100%;
+                    margin: 10px 0px;
+                    border: 2px solid #e3e3e3;
+                    border-radius: 2px;
+                    padding: 0.8rem 0.5rem;
+                    &:hover{
+                        outline: 2px solid rgba(0,0,0,0.3);
+                        outline-offset: -2px;
+                    }
+                    &:focus{
+                        outline: 2px solid black;
+                        outline-offset: -2px;
+                    }
+                }
+                
+                input[validation]{
+                    border: 2px solid #DC0000;
+                    position: relative;
+                    &:hover{
+                        outline: 2px solid #A10035;
+                        outline-offset: -2px;
+                    }
+                    &:focus{
+                        outline: 2px solid #A10035;
+                        outline-offset: -2px;
+                    }
+                    &+span::after{
+                        content: attr(validation);
+                        position: absolute;
+                        bottom: -10%;
+                        right: 5px;
+                        color: #A10035;
+                        font-size: 0.7rem;
+                        
+                    }
+                    
+                }
+                .passwordEye{
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    transform: translateY(-50%);
+                    height: 20px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            
+            button[id=submit]{
+                margin: 10px 0px;
+                transition: background-position 10s;
+                transform: outline 0.2s;
+                background: url('../../public/bg2.jpg');
+                background-size: cover;
+                background-position: 0% 0%;
+                padding: 0.8rem 0.5rem;
+                font-size: 1.1rem;
+                font-weight: 600;
+                border: 0px solid rgba(58, 58, 58,0.7);
+                box-shadow: inset 0 0 0 2000px rgba(255,255,255,0.7);
+                &:hover,&:focus{
+                    outline:2px solid black;  
+                    background-position: 100% 100%;  
+                    outline-offset: -2px;  
+                }
+                &:hover,&:focus{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .SignupBlock2{
+        background: url('../../public/bg2.jpg');
+        width: 50%;
+        min-height: 60vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: grid;
+        place-items: center;
+        .SignupBlock2Text{
+            font-size: 2rem;
+            letter-spacing: 3px;
+            // border: 2px dashed #e3e3e3;
+            padding: 10px 10%;
+            height: 70%;
+            width: 80%;
+            background-color: rgba(255,255,255,0.7);
+            // background-color: rgba(234, 199, 199,0.3);
+            backdrop-filter:blur(2px);
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            position: relative;
+            &::before{
+                content: '';
+                height: 2rem;
+                position: absolute;
+                left: 100%;
+                right: 0%;
+                background: url("../../public/wavycolored.png");
+                top: 5%;
+                transition: all 1s;
+                
+            }
+            &::after{
+                content: '';
+                height: 2rem;
+                position: absolute;
+                left: 0%;
+                right: 100%;
+                background: url("../../public/wavycolored.png");
+                top: 90%;
+                transition: all 1s;
+                
+            }
+            span{
+                color:#3a3a3a;
+                
+            }
+            .firstText{
+                margin-top: 5%;
+                letter-spacing: 1px;
+                font-size: 1rem;
+                line-height: 100%;
+                position: relative;
+                
+                
+                span{
+                    line-height: 300%;
+                    
+                }
+            }
+            &:hover{
+                &::before{
+                    content: '';
+                    height: 2rem;
+                    position: absolute;
+                    left: 0%;
+                    right: 0%;
+                    background: url("../../public/wavycolored.png");
+                    top: 5%;
+                    
+                }
+                &::after{
+                    content: '';
+                    height: 2rem;
+                    position: absolute;
+                    left: 0%;
+                    right: 0%;
+                    background: url("../../public/wavycolored.png");
+                    top: 90%;
+                    
+                }
+            }
+        }
+    }
+}
+#toNavigate{
+    display: none;
+  }
+
+@media only screen and (max-width: 600px) {
+    body{
+        background: url('../../public/bg2.jpg');
+        background-size: cover;
+        color:rgb(58, 58, 58);
+        font-family: 'Montserrat', sans-serif;
+    }
+    .Signup{
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        color:#3a3a3a;
+    }
+    .SignupBlock{
+        width: 95%;
+        min-height: 60vh;
+        margin: auto auto;
+        display: flex;
+        justify-content: space-between;
+        border-top-right-radius: 50px;
+        overflow: hidden;
+        background-color: rgb(255,255,255);
+        box-shadow: 0px 0px 30px 1px #818181;
+        .SignupBlock1{
+            width: 100%;
+            padding: 100px 5px;
+            padding-bottom: 50px;
+            display: grid;
+            place-items:center;
+            .Signupform{
+                display: flex;
+                flex-direction: column;
+                width: 85%;
+                margin: auto;
+                .Signuptitle{
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                    text-align: left;
+                    line-height: 100%;
+                    position: relative;
+                    .logo{
+                        position: absolute;
+                        width: 10rem;
+                        bottom: 150%;
+                        left: 0%;
+                        
+                    }
+                    .Signuptitlesub{
+                        font-size: 1rem;
+                        font-weight: 100;
+                    }
+                }
+                input{
+                    margin: 10px 0px;
+                    border: 2px solid #e3e3e3;
+                    border-radius: 2px;
+                    padding: 0.8rem 0.5rem;
+                    &:hover{
+                        outline: 2px solid rgba(0,0,0,0.3);
+                        outline-offset: -2px;
+                    }
+                    &:focus{
+                        outline: 2px solid black;
+                        outline-offset: -2px;
+                    }
+                }
+                button[id=submit]{
+                    margin: 10px 0px;
+                    background: url('../../public/bg2.jpg');
+                    background-size: cover;
+                    padding: 10px 0px;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    border: 0px solid rgba(58, 58, 58,0.7);
+                    &:hover,&:focus{
+                        // outline: 2px solid rgba(172, 112, 136,1);
+                        outline:2px solid black;    
+                        outline-offset: -1px;    
+                    }
+                    &:hover,&:focus{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .SignupBlock2{
+            background: url('../../public/bg2.jpg');
+            width: 0%;
+            min-height: 60vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: none;
+            place-items: center;
+            .SignupBlock2Text{
+                font-size: 2rem;
+                letter-spacing: 3px;
+                // border: 2px dashed #e3e3e3;
+                padding: 10px 10%;
+                height: 70%;
+                width: 80%;
+                background-color: rgba(255,255,255,0.7);
+                // background-color: rgba(234, 199, 199,0.3);
+                backdrop-filter:blur(2px);
+                font-weight: 600;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: left;
+                position: relative;
+                &::before{
+                    content: '';
+                    height: 2rem;
+                    position: absolute;
+                    left: 100%;
+                    right: 0%;
+                    background: url("../../public/wavycolored.png");
+                    top: 5%;
+                    transition: all 1s;
+                    
+                }
+                &::after{
+                    content: '';
+                    height: 2rem;
+                    position: absolute;
+                    left: 0%;
+                    right: 100%;
+                    background: url("../../public/wavycolored.png");
+                    top: 90%;
+                    transition: all 1s;
+                    
+                }
+                span{
+                    color:#3a3a3a;
+                    
+                }
+                .firstText{
+                    margin-top: 5%;
+                    letter-spacing: 1px;
+                    font-size: 1rem;
+                    line-height: 100%;
+                    position: relative;
+                    
+                    
+                    span{
+                        line-height: 300%;
+                        
+                    }
+                }
+                &:hover{
+                    &::before{
+                        content: '';
+                        height: 2rem;
+                        position: absolute;
+                        left: 0%;
+                        right: 0%;
+                        background: url("../../public/wavycolored.png");
+                        top: 5%;
+                        
+                    }
+                    &::after{
+                        content: '';
+                        height: 2rem;
+                        position: absolute;
+                        left: 0%;
+                        right: 0%;
+                        background: url("../../public/wavycolored.png");
+                        top: 90%;
+                        
+                    }
+                }
+            }
+        }
+    }
+    #toNavigate{
+        display: none;
+      }
+  }
